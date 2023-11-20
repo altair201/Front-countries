@@ -1,8 +1,9 @@
 import axios from "axios";
+const baseURL = process.env.REACT_APP_API_URL;
 export const countriesAll = () => {
     try {
         return async (dispatch) => {
-            const response = await axios('http://localhost:3001/countriesworld/countries');
+            const response = await axios(`${baseURL}/countriesworld/countries`);
             const { data } = response;
             return dispatch({
                 type: 'COUNTRIES_ALL',
@@ -22,10 +23,10 @@ export const getString = (string) => {
         if (isNaN(string)) {
             return async (dispatch) => {
                 try {
-                    const response = await axios(`http://localhost:3001/countriesworld/countries/${string}`);
+                    const response = await axios(`${baseURL}/countriesworld/countries/${string}`);
                     const { data } = response;
                     if (!data.id) {
-                        const response = await axios(`http://localhost:3001/countriesworld/name?name=${string}`);
+                        const response = await axios(`${baseURL}/countriesworld/name?name=${string}`);
                         const { data } = response;
                         return dispatch({
                             type: 'COUNTRIES_NAME',
@@ -69,7 +70,7 @@ export const continentCard = (continent) => {
 export const countriId = (id) => {
     try {
         return async (dispatch) => {
-            const response = await axios(`http://localhost:3001/countriesworld/countries/${id}`);
+            const response = await axios(`${baseURL}/countriesworld/countries/${id}`);
             const { data } = response;
 
 
@@ -91,8 +92,8 @@ export const potsActivities = (formData) => {
             return async (dispatch) => {
 
                 try {
-                    await axios.post('http://localhost:3001/countriesworld/activities', formData);
-                    const response = await axios.get('http://localhost:3001/countriesworld/activities');
+                    await axios.post(`${baseURL}/countriesworld/activities`, formData);
+                    const response = await axios.get(`${baseURL}/countriesworld/activities`);
                     const { data } = response;
 
                     return dispatch({
@@ -109,7 +110,7 @@ export const potsActivities = (formData) => {
 
         } else {
             return async (dispatch) => {
-                const response = await axios.get('http://localhost:3001/countriesworld/activities');
+                const response = await axios.get(`${baseURL}/countriesworld/activities`);
                 const { data } = response;
                 return dispatch({
                     type: 'POSGET_ACTIVITIES',
@@ -140,8 +141,8 @@ export const restartError = () => {
 export const deleteActivities = (id) => {
     try {
         return async (dispatch) => {
-            await axios.delete(`http://localhost:3001/countriesworld/activities/${id}`);
-            const response = await axios.get('http://localhost:3001/countriesworld/activities');
+            await axios.delete(`${baseURL}/countriesworld/activities/${id}`);
+            const response = await axios.get(`${baseURL}/countriesworld/activities`);
             const { data } = response;
             return dispatch({
                 type: 'POSGET_ACTIVITIES',
@@ -157,7 +158,7 @@ export const UpdatedActivities = (id, Activity) => {
    
     return async (dispatch) => {
         try {
-            await axios.put(`http://localhost:3001/countriesworld/activities/${id}` , Activity);
+            await axios.put(`${baseURL}/countriesworld/activities/${id}` , Activity);
             
         } catch (error) {
             return dispatch({
