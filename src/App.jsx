@@ -10,7 +10,7 @@ import Detail from './components/Detail.jsx/Detail';
 import FormActivities from './components/FormActivities/FormActivities';
 import Activities from './components/Activities/Activities';
 import About from './components/About/About';
-import UpdatedActi from './components/updateActivities/UpdateActi';
+import UpdatedActi from './components/UpdateActivities/UpdateActi';
 
 function App( ) {
   const dispatch = useDispatch();
