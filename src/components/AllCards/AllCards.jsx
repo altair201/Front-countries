@@ -1,5 +1,5 @@
 import React from "react";
-import Cards from "../cards/cards";
+import Cards from "../Cards/Cards";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { orderCards, continentCard, getCountryActivities, restartError } from "../../redux/actions";
