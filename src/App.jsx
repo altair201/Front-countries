@@ -9,7 +9,7 @@ import { countriesAll, potsActivities } from "./redux/actions";
 import Detail from './components/Detail.jsx/Detail';
 import FormActivities from './components/FormActivities/FormActivities';
 import Activities from './components/Activities/Activities';
-import About from './components/about/about';
+import About from './components/About/About';
 import UpdatedActi from './components/updateActivities/UpdateActi';
 
 function App( ) {
